@@ -11,4 +11,10 @@ int main(){
     printf("ft_strdup de hola\n");
       char *result2 = ft_strdup("hola");
     printf("%s\n", result2);
+
+    printf("ft_isalpha de h\n");
+
+    int resultisalphaok = ft_isalpha ('h');
+    int resultisalphako = ft_isalpha ('9');
+    printf ("%d %d\n", resultisalphaok, resultisalphako);
 }
