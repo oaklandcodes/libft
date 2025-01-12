@@ -1,39 +1,35 @@
-# Nombre de la librería
-NAME = libft.a
+# Nombre del ejecutable de tu tester
+NAME = tester
 
 # Compilador y flags
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-# Archivos fuente y sus correspondientes archivos objeto
-SRCS = $(wildcard *.c)
-OBJS = $(SRCS:.c=.o)
+# Archivo fuente del tester
+SRC = tester.c
 
-# Archivo de cabecera
+# Directorio de la librería y el archivo de cabecera
+LIB_DIR = ./libreria
+LIB_NAME = libft.a
 HEADER = libft.h
 
-# Regla principal (crear la librería)
+# Rutas completas para la librería y el encabezado
+LIB_PATH = $(LIB_DIR)/$(LIB_NAME)
+HEADER_PATH = $(LIB_DIR)/$(HEADER)
+
+# Regla principal
 all: $(NAME)
 
-# Crear la librería estática
-$(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+# Regla para compilar el tester con la librería
+$(NAME): $(SRC) $(LIB_PATH) $(HEADER_PATH)
+	$(CC) $(CFLAGS) $(SRC) -I$(LIB_DIR) -L$(LIB_DIR) -lft -o $(NAME)
 
-# Regla para compilar los archivos objeto
-%.o: %.c $(HEADER)
-	$(CC) $(CFLAGS) -c $< -o $@
-
-# Limpiar archivos objeto
+# Limpieza del ejecutable
 clean:
-	rm -f $(OBJS)
-
-# Limpiar todo (archivos objeto y librería)
-fclean: clean
 	rm -f $(NAME)
 
-
 # Reconstruir todo desde cero
-re: fclean all
+re: clean all
 
-# Evita que Make interprete estos nombres como archivos o directorios
-.PHONY: all clean fclean re
+# Evita que Make interprete estas reglas como nombres de archivos
+.PHONY: all clean re
