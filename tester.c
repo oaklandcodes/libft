@@ -51,6 +51,7 @@ void tester_ft_memcpy()
     printf("%c", dest[i]);
     i++;
   }
+  printf("\n"); 
 }
 void tester_ft_memmove()
 {
