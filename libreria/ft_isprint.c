@@ -23,15 +23,15 @@ int	ft_isprint(int c)
 	}
 }
 
-int	main()
-{
-	char c1 = 'B';
-	char c2 = '\n';
-	char c3 = ' ';
-	char c4 = 127;
+// int	main()
+// {
+// 	char c1 = 'B';
+// 	char c2 = '\n';
+// 	char c3 = ' ';
+// 	char c4 = 127;
 
-	printf("ft_isprint('%d')", ft_isprint(c1));
-	printf("ft_isprint('%d')", ft_isprint(c2));
-	printf("ft_isprint('%d')", ft_isprint(c3));
-	printf("ft_isprint('%d')", ft_isprint(c4));
-}
+// 	printf("ft_isprint('%d')", ft_isprint(c1));
+// 	printf("ft_isprint('%d')", ft_isprint(c2));
+// 	printf("ft_isprint('%d')", ft_isprint(c3));
+// 	printf("ft_isprint('%d')", ft_isprint(c4));
+// }
