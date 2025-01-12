@@ -3,15 +3,15 @@
 
 void tester_ft_strlen()
 {
-  printf("ft_strlen de hello\n");
+  printf("ft_strlen\n");
   size_t result = ft_strlen("Hello");
-  printf("%d\n", result);
+  printf("length of Hello: %d\n", result);
 }
 
 void tester_ft_strdup()
 {
-  printf("ft_strdup de hola\n");
-  char *result2 = ft_strdup("hola");
+  printf("ft_strdup\n");
+  char *result2 = ft_strdup("Hello");
   printf("%s\n", result2);
 }
 
@@ -25,7 +25,7 @@ void tester_ft_isalpha()
 
 void tester_ft_memset()
 {
-  printf("ft_memset de hola\n");
+  printf("ft_memset\n");
   char arr[20];
   char *result_mem;
   result_mem = ft_memset(arr, 'A', sizeof(arr));
@@ -40,7 +40,7 @@ void tester_ft_memset()
 }
 void tester_ft_memcpy()
 {
-  printf("ft_memcpy de hola\n");
+  printf("ft_memcpy\n");
   char dest[20];
   char src[] = "Im learning how to be a great programmer";
   size_t n = 15;
@@ -54,13 +54,21 @@ void tester_ft_memcpy()
 }
 void tester_ft_memmove()
 {
-  printf("ft_memmove de hola\n");
+  printf("ft_memmove\n");
   char str[50] = "ABCDEF";
   printf("Before memmove: %s\n", str);
   ft_memmove(str + 2, str, 4); // ABCDEF -> ABABCD
   printf("After memmove: %s\n", str);
 }
-
+void tester_ft_strlcpy()
+{
+  printf("ft_strlcpy\n");
+  char src[30] = "Hello, Im testing strlcpy";
+  char dst[30];
+  printf("Before de ft_strlcpy: %s\n", src);
+  size_t result = ft_strlcpy(dst, src, 10);
+  printf("After de ft_strlcpy: %s srcsize %d\n", dst, result);
+}
 int main()
 {
   printf("tester de libreria\n");
@@ -75,5 +83,7 @@ int main()
   tester_ft_memcpy();
 
   tester_ft_memmove();
+
+  tester_ft_strlcpy();
   return (0);
 }

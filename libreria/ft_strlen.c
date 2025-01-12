@@ -23,3 +23,11 @@ size_t	ft_strlen(const char *str)
 	}
 	return (i);
 }
+// int	main()
+// {
+// 	char str[30] = "Hello";
+// 	printf("Before de ft_strlen: %s\n", str);
+// 	size_t result = ft_strlen(str);
+// 	printf("After de ft_strlen: %d\n", result);
+// 	return (0);
+// }
