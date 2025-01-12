@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ocaro-lo <ocaro-lo@student.42barcelona.com +#+  +:+       +#+        */
+/*   By: ocaro-lo <ocaro-lo@student.42barcelona.com  +#+  +:+       +#+       */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/07 20:00:33 by ocaro-lo          #+#    #+#             */
-/*   Updated: 2025/01/08 12:38:24 by ocaro-lo         ###   ########.fr       */
+/*   Created: 2025/01/08 12:52:52 by ocaro-lo          #+#    #+#             */
+/*   Updated: 2025/01/08 14:17:19 by ocaro-lo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_isalpha(int c)
+int	ft_isdigit(int c)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+	if (c >= '0' && c <= '9')
 	{
 		return (1);
 	}
@@ -22,3 +22,10 @@ int	ft_isalpha(int c)
 		return (0);
 	}
 }
+/*int	main()
+{
+	printf("testing ft_isdigit of 2\n");
+	int resultisdigit_ok = ft_isdigit ('2');
+	int resultisdigit_ko = ft_isdigit ('a');
+	printf ("%d %d\n", resultisdigit_ok, resultisdigit_ko);
+}*/
