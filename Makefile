@@ -31,6 +31,7 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
+
 # Reconstruir todo desde cero
 re: fclean all
 

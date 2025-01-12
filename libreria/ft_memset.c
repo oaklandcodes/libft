@@ -28,7 +28,6 @@ void	*ft_memset(void *s, int c, size_t n)
 
 /*int	main()
 {
-
         char arr[20];
         char *result_mem;
 
