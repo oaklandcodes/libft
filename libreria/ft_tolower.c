@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocaro-lo <ocaro-lo@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/09 15:38:00 by ocaro-lo          #+#    #+#             */
-/*   Updated: 2025/01/13 14:24:33 by ocaro-lo         ###   ########.fr       */
+/*   Created: 2025/01/13 16:00:50 by ocaro-lo          #+#    #+#             */
+/*   Updated: 2025/01/13 16:36:31 by ocaro-lo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_isprint(int c)
-{
-	if (c >= 32 && c <= 126)
+int	ft_tolower(int c)
+{	
+	if (c >= 'A' && c <= 'Z')
 	{
-		return (1);
+		return c + ('a' - 'A');
 	}
-	else
-	{
-		return (0);
-	}
+	return (c);
 }
 
-// int	main()
-// {
-// 	char c1 = 'B';
-// 	char c2 = '\n';
-// 	char c3 = ' ';
-// 	char c4 = 127;
-
-// 	printf("ft_isprint('%d')", ft_isprint(c1));
-// 	printf("ft_isprint('%d')", ft_isprint(c2));
-// 	printf("ft_isprint('%d')", ft_isprint(c3));
-// 	printf("ft_isprint('%d')", ft_isprint(c4));
-// }
+/*int	main
+{ 
+    char c = 'A';
+    printf("Original: %c, tolower: %c\n", c, ft_tolower(c));
+    
+    c = 'z';
+    printf("Original: %c, tolower: %c\n", c, ft_tolower(c));
+    
+    c = '1';
+    printf("Original: %c, tolower: %c\n", c, ft_tolower(c));  
+}*/

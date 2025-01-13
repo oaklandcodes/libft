@@ -28,6 +28,8 @@ $(NAME): $(SRC) $(LIB_PATH) $(HEADER_PATH)
 clean:
 	rm -f $(NAME)
 
+fclean: clean
+
 # Reconstruir todo desde cero
 re: clean all
 

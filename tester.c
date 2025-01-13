@@ -15,12 +15,67 @@ void tester_ft_strdup()
   printf("%s\n", result2);
 }
 
+void tester_ft_isalnum()
+{
+    printf("ft_isalnum\n");
+    printf("a es alfanumérico: %d\n", ft_isalnum('a'));
+    printf("1 es alfanumérico: %d\n", ft_isalnum('1'));
+    printf("- no es alfanumerico: %d\n", ft_isalnum('-'));
+    printf("# es alfanumérico: %d\n", ft_isalnum('#'));  
+}
+
 void tester_ft_isalpha()
 {
   printf("ft_isalpha de h\n");
   int resultisalphaok = ft_isalpha('h');
   int resultisalphako = ft_isalpha('9');
   printf("%d %d\n", resultisalphaok, resultisalphako);
+}
+
+void tester_ft_isprint()
+{
+	printf("ft_isalnum\n");
+	char c1 = 'B';
+ 	char c2 = '\n';
+ 	char c3 = ' ';
+ 	char c4 = 127;
+
+ 	printf("ft_isprint('%d')", ft_isprint(c1));
+ 	printf("ft_isprint('%d')", ft_isprint(c2));
+ 	printf("ft_isprint('%d')", ft_isprint(c3));
+ 	printf("ft_isprint('%d')", ft_isprint(c4));
+
+}
+
+void tester_ft_isdigit()
+{
+    printf("testing ft_isdigit of 2\n");
+    int resultisdigit_ok = ft_isdigit ('2');
+    int resultisdigit_ko = ft_isdigit ('a');
+    printf ("%d %d\n", resultisdigit_ok, resultisdigit_ko);
+}
+void tester_ft_isascii()
+{
+    printf("testing ft_isdigit\n");
+    int ft_isascii_ok = ft_isascii('a');
+    int ft_isascii_ko = ft_isascii(128);
+    printf("ft_isascii('a') = %d\n", ft_isascii_ok);
+    printf("ft_isascii(128) = %d\n", ft_isascii_ko);
+}
+void tester_ft_bzero()
+{
+	printf("ft_bzero\n");
+	char str[50] = "Hello!, I'm testing bzero!";
+	printf("Before de ft_bzero: %s\n", str);
+	ft_bzero(str, 10);
+	printf("After de ft_bzero:");
+	size_t i = 0;
+	while (i < 50)
+	{
+	printf("%d ", str[i]);
+        i++;
+	}
+	printf("\n");
 }
 
 void tester_ft_memset()
@@ -61,6 +116,7 @@ void tester_ft_memmove()
   ft_memmove(str + 2, str, 4); // ABCDEF -> ABABCD
   printf("After memmove: %s\n", str);
 }
+
 void tester_ft_strlcpy()
 {
   printf("ft_strlcpy\n");
@@ -70,14 +126,36 @@ void tester_ft_strlcpy()
   size_t result = ft_strlcpy(dst, src, 10);
   printf("After de ft_strlcpy: %s srcsize %d\n", dst, result);
 }
+
+void tester_ft_strlcat()
+{
+	printf("strlcat\n");
+	char src[30] = "world";
+	char dst[30] = "Hello, ";
+	printf("Before de strlcat: %s\n", dst);
+	size_t result = ft_strlcat(dst, src, 13);
+	printf("After de strlcat: %s srcsize %d\n", dst, result);
+}
+
 int main()
 {
   printf("tester de libreria\n");
+  
   tester_ft_strlen();
 
   tester_ft_strdup();
-
+  
+  tester_ft_isalnum();
+  
   tester_ft_isalpha();
+  
+  tester_ft_isprint();
+  
+  tester_ft_isdigit();
+  
+  tester_ft_isascii();
+  
+  tester_ft_bzero();
 
   tester_ft_memset();
 
@@ -86,5 +164,8 @@ int main()
   tester_ft_memmove();
 
   tester_ft_strlcpy();
+
+  tester_ft_strlcat();
+  
   return (0);
 }
