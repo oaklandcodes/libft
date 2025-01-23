@@ -175,6 +175,132 @@ void tester_ft_strncmp()
   printf("The result is: %d\n", result);
 }
 
+void tester_ft_atoi()
+{
+  printf("ft_atoi\n");
+  char str1[] = "   -1234";
+  char str2[] = "abc1234";
+  char str3[] = "   +5678";
+  char str4[] = "42 is the answer";
+
+  printf("%d\n", ft_atoi(str1)); // -1234
+  printf("%d\n", ft_atoi(str2)); // 0
+  printf("%d\n", ft_atoi(str3)); // 5678
+  printf("%d\n", ft_atoi(str4)); // 42
+}
+
+void tester_ft_calloc()
+{
+  int *arr = (int *)ft_calloc(5, sizeof(int));
+
+  if (arr == NULL)
+  {
+    printf("Error al asignar memoria\n");
+    return;
+  }
+  int i = 0;
+  while (i < 5)
+  {
+    printf("arr[%d] = %d\n", i, arr[i]);
+    i++;
+  }
+
+  free(arr);
+}
+
+void tester_ft_memcmp()
+{
+  printf("ft_  memcmp\n");
+  char buffer1[] = {'A', 'B', 'C', 'D', 'E'};
+  char buffer2[] = {'A', 'B', 'C', 'D', 'F'};
+
+  int result = ft_memcmp(buffer1, buffer2, 5);
+
+  if (result < 0)
+  {
+    printf("buffer1 is less than buffer2\n");
+  }
+  else if (result > 0)
+  {
+    printf("buffer1 is greater than buffer2\n");
+  }
+  else
+  {
+    printf("buffer1 is equal to buffer2\n");
+  }
+}
+
+void tester_ft_putchar_fd()
+{
+  printf("ft_putchar_fd\n");
+  ft_putchar_fd('c', 1);
+}
+
+void tester_ft_putdendl_fd()
+{
+  printf("ft_putendl_fd\n");
+  ft_putendl_fd("Hello, Im testing ft_putendl_fd", 1);
+  ft_putendl_fd("This is a new line", 1);
+}
+
+void tester_ft_putnbr_fd()
+{
+  printf("ft_putnbr_fd\n");
+  ft_putnbr_fd(123, 1);
+  ft_putnbr_fd(-123, 1);
+  ft_putnbr_fd(0, 1);
+  ft_putnbr_fd(2147483647, 1);
+  ft_putnbr_fd(-2147483648, 1);
+}
+
+void tester_ft_putstr_fd()
+{
+  printf("ft_putstr_fd\n");
+  char *str = "Hello, Im testing ft_putstr_fd";
+  ft_putstr_fd(str, 1);
+}
+
+void tester_ft_strjoin()
+{
+  printf("ft_strjoin\n");
+  char s1[] = "Hello! ";
+  char s2[] = "Im testing strjoin";
+  char *result = ft_strjoin(s1, s2);
+  printf("%s\n", result);
+  free(result);
+}
+
+void tester_ft_strnstr()
+{
+  const char *big = "this is a test";
+  const char *little = "tes";
+  char *result = ft_strnstr(big, little, 15);
+  if (result != NULL)
+  {
+    printf("'%s' was found in '%s' at: %s\n", little, big, result);
+  }
+  else
+  {
+    printf("'%s' was not found in '%s'.\n", little, big);
+  }
+}
+
+void tester_ft_substr()
+{
+  char *s = "Hello, world!";
+  char *result = ft_substr(s, 7, 5);
+
+  if (result)
+  {
+    printf("Result: '%s'\n", result);
+    free(result);
+  }
+  else
+  {
+    printf("Error creating a substring.\n");
+  }
+}
+
 int main()
 {
   printf("tester de libreria\n");
@@ -210,6 +336,27 @@ int main()
   tester_ft_strrchr();
 
   tester_ft_strncmp();
+
+  tester_ft_atoi();
+
+  tester_ft_calloc();
+
+  tester_ft_memcmp();
+
+  tester_ft_putchar_fd();
+
+  tester_ft_putdendl_fd();
+
+  tester_ft_putnbr_fd();
+
+  tester_ft_putstr_fd();
+
+  tester_ft_strjoin();
+
+  tester_ft_strnstr();
+
+  tester_ft_substr();
+
 
   return (0);
 }
