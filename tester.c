@@ -272,6 +272,7 @@ void tester_ft_strjoin()
 
 void tester_ft_strnstr()
 {
+  printf("ft_strnstr\n");
   const char *big = "this is a test";
   const char *little = "tes";
   char *result = ft_strnstr(big, little, 15);
@@ -287,6 +288,7 @@ void tester_ft_strnstr()
 
 void tester_ft_substr()
 {
+  printf("ft_substr\n");
   char *s = "Hello, world!";
   char *result = ft_substr(s, 7, 5);
 
@@ -300,7 +302,58 @@ void tester_ft_substr()
     printf("Error creating a substring.\n");
   }
 }
+void tester_ft_strtrim()
+{
+  printf("ft_strtrim\n");
+  char *result;
+  result = ft_strtrim("testing", "tet");
+  if (result)
+  {
+    printf("Result: %s\n", result);
+    free(result);
+  }
+  else
+  {
+    printf("Result is NULL\n");
+  }
+}
 
+void tester_ft_itoa()
+{
+  printf("ft_itoa\n");
+  char *result;
+  result = ft_itoa(21);
+  printf("%s", result);
+  free(result);
+}
+
+void tester_ft_split()
+{
+  printf("ft_split\n");
+  char **result;
+  size_t j;
+  result = ft_split("hello, this is split", ' ');
+  j = 0;
+  while (result[j])
+  {
+    ft_putstr_fd(result[j], 1);
+    printf("\n");
+    j++;
+  }
+}
+
+void tester_ft_strmapi()
+{
+  char upper_c(unsigned int index, char c)
+  {
+    (void)index;
+    return (ft_toupper(c));
+  }
+  printf("ft_strmapi\n");
+  char *result = ft_strmapi("hello", upper_c);
+  printf("before strmapi: hello After strmapi: %s", result);
+  free(result);
+}
 int main()
 {
   printf("tester de libreria\n");
@@ -357,6 +410,12 @@ int main()
 
   tester_ft_substr();
 
+  tester_ft_strtrim();
 
+  tester_ft_itoa();
+
+  tester_ft_split();
+
+  tester_ft_strmapi();
   return (0);
 }
