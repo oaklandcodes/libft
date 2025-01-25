@@ -341,19 +341,33 @@ void tester_ft_split()
     j++;
   }
 }
-
+char upper_c(unsigned int index, char c)
+{
+  (void)index;
+  return (ft_toupper(c));
+}
 void tester_ft_strmapi()
 {
-  char upper_c(unsigned int index, char c)
-  {
-    (void)index;
-    return (ft_toupper(c));
-  }
   printf("ft_strmapi\n");
-  char *result = ft_strmapi("hello", upper_c);
-  printf("before strmapi: hello After strmapi: %s", result);
+  char *result = ft_strmapi("test", upper_c);
+  printf("before strmapi: test After strmapi: %s \n", result);
   free(result);
 }
+
+void tester_ft_striteri()
+{
+  void upper_striteri(unsigned int index, char *c)
+{
+	(void)index;
+	*c = ft_toupper(*c);
+}
+  printf("ft_striteri\n");
+  char s[] = "hello";
+  printf("Before striteri: %s\n", s);
+  ft_striteri(s, upper_striteri);
+  printf("After striteri: %s\n", s);
+}
+
 int main()
 {
   printf("tester de libreria\n");
@@ -417,5 +431,7 @@ int main()
   tester_ft_split();
 
   tester_ft_strmapi();
+
+  tester_ft_striteri();
   return (0);
 }

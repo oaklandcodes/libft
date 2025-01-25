@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                         :+:      :+:    :+: */
+/*   ft_striteri.c                                         :+:      :+:    :+:*/
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocaro-lo <ocaro-lo@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,32 +11,32 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	char			*new_str;
 	unsigned int	i;
 
 	if (!s || !f)
-		return (NULL);
-	new_str = (char *)malloc(sizeof(char) * (strlen(s) + 1));
-	if (new_str == NULL)
-		return (NULL);
+	{
+		return ;
+	}
 	i = 0;
 	while (s[i] != '\0')
 	{
-		new_str[i] = f(i, s[i]);
+		f(i, &s[i]);
 		i++;
 	}
-	new_str[i] = '\0';
-	return (new_str);
 }
-
-// char upper_c(unsigned int index, char c)
+// void upper_c(unsigned int index, char *c)
 // {
-// 	return (ft_toupper(c));
+// 	(void)index;
+// 	*c = ft_toupper(*c);
 // }
-// int main(){
-// 	char *result = ft_strmapi("test", upper_c);
-// 	printf("before strmapi: test After strmapi: %s", result);
-// 	return (0);
+
+// int main(void)
+// {
+//     char s[] = "hello";
+//     printf("Before striteri: %s\n", s);
+//     ft_striteri(s, upper_c);
+//     printf("After striteri: %s\n", s);
+//     return 0;
 // }
