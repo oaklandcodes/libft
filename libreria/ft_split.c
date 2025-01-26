@@ -40,29 +40,41 @@ static void	*free_result(size_t i, char **result)
 	return (NULL);
 }
 
+void	*validate_and_malloc(char const *s, char c, char ***result)
+{
+	size_t	words_in_s;
+
+	if (!s)
+		return (NULL);
+	words_in_s = count_words(s, c);
+	*result = (char **)malloc((words_in_s + 1) * sizeof(char *));
+	return (*result);
+}
+
 char	**ft_split(char const *s, char c)
 {
-	char		**result;
-	const char	*start;
-	size_t		i;
-	size_t		words_in_s;
+	char	**result;
+	size_t	i;
+	size_t	j;
 
-	words_in_s = count_words(s, c);
-	result = (char **)malloc((words_in_s + 1) * sizeof(char *));
-	if (!result)
+	if (!validate_and_malloc(s, c, &result))
 		return (NULL);
 	i = 0;
 	while (*s != '\0')
 	{
 		while (*s == c)
 			s++;
-		start = s;
-		while (*s && *s != c)
-			s++;
-		result[i] = ft_substr(start, 0, s - start);
-		if (!result[i])
-			return (free_result(i, result));
-		i++;
+		if (*s != '\0')
+		{
+			j = 0;
+			while (s[j] != '\0' && s[j] != c)
+				j++;
+			result[i] = ft_substr(s, 0, j);
+			if (!result[i])
+				return (free_result(i, result));
+			i++;
+			s += j;
+		}
 	}
 	result[i] = NULL;
 	return (result);

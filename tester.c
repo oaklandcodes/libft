@@ -207,6 +207,20 @@ void tester_ft_calloc()
 
   free(arr);
 }
+ void tester_ft_memchr(){
+  printf("ft_memchr\n");
+  char *str = "Hello, world!";
+  char c = 'o';
+  char *result = ft_memchr(str, c, 13);
+  if (result != NULL)
+  {
+    printf("The first occurrence of '%c' is in: %s\n", c, result);
+  }
+  else
+  {
+    printf("The character '%c' was not found.\n", c);
+  }
+ }
 
 void tester_ft_memcmp()
 {
@@ -389,6 +403,8 @@ int main()
   tester_ft_bzero();
 
   tester_ft_memset();
+
+  tester_ft_memchr();
 
   tester_ft_memcpy();
 
