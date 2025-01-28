@@ -12,13 +12,10 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stddef.h>
-# include <stdio.h>
 # include <stdlib.h>
-# include <ctype.h>
-# include <string.h>
 # include <unistd.h>
 # include <stdint.h>
+# include <stdio.h>
 
 int			ft_isascii(int c);
 int			ft_isalnum(int c);
